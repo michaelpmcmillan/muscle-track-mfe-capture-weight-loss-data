@@ -38,6 +38,23 @@ export default function Root(props) {
           </Helmet>
 
           <FORM_GROUP>
+            <Form.Label>Weight (kg)</Form.Label>
+            <Form.Control
+              name="weight"
+              type=""
+              placeholder=""
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.weight}
+              className={touched.weight && errors.weight ? "error" : null}
+            />
+
+            {touched.weight && errors.weight ? (
+              <div className="error-message">{errors.weight}</div>
+            ) : null}
+          </FORM_GROUP>
+
+          <FORM_GROUP>
             <Form.Label>Waist (mm)</Form.Label>
             <Form.Control
               name="waist"
@@ -94,23 +111,6 @@ export default function Root(props) {
             </Form.Text>
             {touched.neck && errors.neck ? (
               <div className="error-message">{errors.neck}</div>
-            ) : null}
-          </FORM_GROUP>
-
-          <FORM_GROUP>
-            <Form.Label>Weight (kg)</Form.Label>
-            <Form.Control
-              name="weight"
-              type=""
-              placeholder=""
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.weight}
-              className={touched.weight && errors.weight ? "error" : null}
-            />
-
-            {touched.weight && errors.weight ? (
-              <div className="error-message">{errors.weight}</div>
             ) : null}
           </FORM_GROUP>
 
