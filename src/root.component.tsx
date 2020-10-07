@@ -3,32 +3,13 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Helmet from "react-helmet";
 import { Formik } from "formik";
-import * as Yup from "yup";
-
-const validationSchema = Yup.object().shape({
-  waist: Yup.number()
-    .min(100)
-    .max(1000000)
-    .required("Waist measurement is required."),
-  hip: Yup.number()
-    .min(100)
-    .max(1000000)
-    .required("Hip measurement is required."),
-  neck: Yup.number()
-    .min(100)
-    .max(1000000)
-    .required("Neck measurement is required."),
-  weight: Yup.number()
-    .min(1)
-    .max(999)
-    .required("Weight measurement is required."),
-});
+import { ValidationSchema } from "./validation";
 
 export default function Root(props) {
   return (
     <Formik
       initialValues={{ waist: 0, hip: 0, neck: 0, weight: 0 }}
-      validationSchema={validationSchema}
+      validationSchema={ValidationSchema}
       onSubmit={(values, { setSubmitting, resetForm }) => {
         setTimeout(() => {
           setSubmitting(true);
