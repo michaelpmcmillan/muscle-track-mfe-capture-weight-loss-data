@@ -16,6 +16,7 @@ yarn start:dev
 - Uses react-bootstrap and the bootstrap cdn.
 - Uses formik to handle form data
 - Uses yup to handle form validation
+- Uses styled-components for easily packagable mfe css
 
 ## How was this app started?
 

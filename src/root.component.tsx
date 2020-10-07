@@ -1,9 +1,9 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Helmet from "react-helmet";
 import { Formik } from "formik";
 import { ValidationSchema } from "./validation";
+import { FORM, BUTTON, FORM_GROUP } from "./styles";
 
 export default function Root(props) {
   return (
@@ -27,7 +27,7 @@ export default function Root(props) {
         handleSubmit,
         isSubmitting,
       }) => (
-        <Form onSubmit={handleSubmit}>
+        <FORM onSubmit={handleSubmit}>
           <Helmet>
             <link
               rel="stylesheet"
@@ -37,7 +37,7 @@ export default function Root(props) {
             ></link>
           </Helmet>
 
-          <Form.Group>
+          <FORM_GROUP>
             <Form.Label>Waist (mm)</Form.Label>
             <Form.Control
               name="waist"
@@ -55,9 +55,9 @@ export default function Root(props) {
             {touched.waist && errors.waist ? (
               <div className="error-message">{errors.waist}</div>
             ) : null}
-          </Form.Group>
+          </FORM_GROUP>
 
-          <Form.Group>
+          <FORM_GROUP>
             <Form.Label>Hip (mm)</Form.Label>
             <Form.Control
               name="hip"
@@ -75,9 +75,9 @@ export default function Root(props) {
             {touched.hip && errors.hip ? (
               <div className="error-message">{errors.hip}</div>
             ) : null}
-          </Form.Group>
+          </FORM_GROUP>
 
-          <Form.Group>
+          <FORM_GROUP>
             <Form.Label>Neck (mm)</Form.Label>
             <Form.Control
               name="neck"
@@ -95,9 +95,9 @@ export default function Root(props) {
             {touched.neck && errors.neck ? (
               <div className="error-message">{errors.neck}</div>
             ) : null}
-          </Form.Group>
+          </FORM_GROUP>
 
-          <Form.Group>
+          <FORM_GROUP>
             <Form.Label>Weight (kg)</Form.Label>
             <Form.Control
               name="weight"
@@ -112,14 +112,14 @@ export default function Root(props) {
             {touched.weight && errors.weight ? (
               <div className="error-message">{errors.weight}</div>
             ) : null}
-          </Form.Group>
+          </FORM_GROUP>
 
-          <Form.Group>
-            <Button variant="primary" type="submit" disabled={isSubmitting}>
+          <FORM_GROUP>
+            <BUTTON variant="primary" type="submit" disabled={isSubmitting}>
               {isSubmitting ? "Please wait..." : "Ok"}
-            </Button>
-          </Form.Group>
-        </Form>
+            </BUTTON>
+          </FORM_GROUP>
+        </FORM>
       )}
     </Formik>
   );
