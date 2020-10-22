@@ -8,7 +8,7 @@ import { FORM, BUTTON, FORM_GROUP } from "./styles";
 export default function Root(props) {
   return (
     <Formik
-      initialValues={{ waist: 0, hip: 0, neck: 0, weight: 0 }}
+      initialValues={{ waist: "", hip: "", neck: "", weight: "" }}
       validationSchema={ValidationSchema}
       onSubmit={(values, { setSubmitting, resetForm }) => {
         setTimeout(() => {
