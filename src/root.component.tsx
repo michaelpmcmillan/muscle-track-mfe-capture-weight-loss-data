@@ -8,7 +8,7 @@ import { FORM, BUTTON, FORM_GROUP } from "./styles";
 export default function Root(props) {
   return (
     <Formik
-      initialValues={{ waist: "", hip: "", neck: "", weight: "" }}
+      initialValues={{ waist: "", hip: "", neck: "", weight: "", height: "" }}
       validationSchema={ValidationSchema}
       onSubmit={(values, { setSubmitting, resetForm }) => {
         setTimeout(() => {
@@ -51,6 +51,25 @@ export default function Root(props) {
 
             {touched.weight && errors.weight ? (
               <div className="error-message">{errors.weight}</div>
+            ) : null}
+          </FORM_GROUP>
+
+          <FORM_GROUP>
+            <Form.Label>Height (cm)</Form.Label>
+            <Form.Control
+              name="height"
+              type="text"
+              placeholder=""
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.height}
+              className={touched.height && errors.height ? "error" : null}
+            />
+            <Form.Text className="text-muted">
+              Make sure you're standing up straight!
+            </Form.Text>
+            {touched.height && errors.height ? (
+              <div className="error-message">{errors.height}</div>
             ) : null}
           </FORM_GROUP>
 

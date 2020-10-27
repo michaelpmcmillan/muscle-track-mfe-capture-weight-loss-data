@@ -5,6 +5,7 @@ export const ValidationSchema = Yup.object().shape({
     .min(100)
     .max(1000000)
     .required("Waist measurement is required."),
+  height: Yup.number().min(55).max(275).required("Height is required."),
   hip: Yup.number()
     .min(100)
     .max(1000000)
